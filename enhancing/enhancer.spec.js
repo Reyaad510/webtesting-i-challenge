@@ -31,4 +31,28 @@ describe('the enhancer', () => {
             expect(result).toBe(20);
         })
     })
+
+    describe('The fail function', () => {
+        it('When enhancement is less than 15, durability decrease by 5 ', () => {
+            let weapon = {enhancement: 13, durability : 10};
+            let result = enhancer.fail(weapon).durability;
+    
+            expect(result).toBe(5);
+        });
+    
+        it('If enhancement is more than 15, durability decrease by 10', () => {
+            let weapon = {enhancement: 20, durability : 15};
+            let result = enhancer.fail(weapon).durability;
+    
+            expect(result).toBe(5);
+        });
+    
+        it('If item enhancement greater than 16, decrease by 1', () => {
+            let weapon = {enhancement: 20, durability : 15};
+            
+            let result = enhancer.fail(weapon).enhancement;
+    
+            expect(result).toBe(19);
+        });
+    })
 });
