@@ -13,4 +13,22 @@ describe('the enhancer', () => {
             expect(result.durability).toBe(100);
         })
     })
-})
+
+    describe('the succeed function', () => {
+    
+        it('if enhancement level is below 20 then will increment up by 1', () => {
+
+            let weapon = { enhancement : 1 };
+            let result = enhancer.succeed(weapon).enhancement;
+            expect(result).toBe(2);
+        });
+    
+        it('if enhancement level is 20 it will not increase anymore', () => {
+            let weapon = { enhancement: 20};
+
+            let result = enhancer.succeed(weapon).enhancement;
+    
+            expect(result).toBe(20);
+        })
+    })
+});
